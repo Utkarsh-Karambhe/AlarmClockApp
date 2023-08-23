@@ -1,0 +1,31 @@
+import time
+import datetime
+
+
+def alarm():
+  """This function rings the alarm."""
+  print("Wake up!")
+
+
+def main():
+  """This is the main function of the alarm clock app."""
+  # Get the current time.
+  now = datetime.datetime.now()
+
+  # Get the alarm time from the user.
+  alarm_time = input("Enter the alarm time (HH:MM): ")
+
+  # Convert the alarm time to a datetime object.
+  alarm_time = datetime.datetime.strptime(alarm_time, "%H:%M")
+
+  # While the current time is before the alarm time, sleep for one second.
+  while now < alarm_time:
+    time.sleep(1)
+    now = datetime.datetime.now()
+
+  # Ring the alarm.
+  alarm()
+
+
+if __name__ == "__main__":
+  main()
